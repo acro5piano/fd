@@ -1,5 +1,5 @@
 #!/bin/bash
 
-FD_DIR=$(cd `dirname $0`; pwd)
+FD_DIR="${${(%):-%x}:A:h}"
 alias fd="source $FD_DIR/fd.sh"
 

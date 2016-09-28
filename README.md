@@ -23,7 +23,7 @@ Then execute `fd`:
 Interactively select the directory which you want to move to:
 
 ```
-   /home/k-gosho
+  /home/k-gosho
 > /usr/local/bin
 ```
 

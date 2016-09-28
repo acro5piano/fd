@@ -1,7 +1,7 @@
 #!/bin/bash
 
 fd::cd(){
-    target=$(cat $FABD_LIST | peco)
+    target=$(cat $FD_LIST | peco)
     if [ "$target" ]; then
         cd $target
     else
@@ -10,29 +10,37 @@ fd::cd(){
 }
 
 fd::add(){
-    if grep -qx $PWD $FABD_LIST; then
+    if grep -qx $PWD $FD_LIST; then
         echo 'fd:Duplicated entry. Abort.' 1>&2
         return 1
     fi
-    pwd >> $FABD_LIST
+    pwd >> $FD_LIST
 }
 
 fd::edit(){
-    vi $FABD_LIST
+    vi $FD_LIST
 }
 
 fd::list(){
-    cat $FABD_LIST
+    cat $FD_LIST
 }
 
 fd::usage(){
-    echo 'fd [a|e]'
-    echo "Bad command: $1"
+    echo 'fd - Favorite directory using peco'
+    echo 'https://github.com/acro5piano/fd'
+    echo ''
+    echo 'Available subcommands:'
+    echo '    add      add the current directory to your favorite directory list.'
+    echo '    edit     edit your favorite directory list.'
+    echo '    list     show your favorite directory list.'
+    echo '    help     show this help.'
+    echo ''
+    [ "$1" ] && echo "Bad command: $1"
     return 3
 }
 
-FABD_LIST="$HOME/.fd_list"
-[ -e $FABD_LIST ] || echo $HOME >> $FABD_LIST
+FD_LIST="$HOME/.fd_list"
+[ -e $FD_LIST ] || echo $HOME >> $FD_LIST
 
 case $1 in
     '0') fd::cd ;;
@@ -42,6 +50,8 @@ case $1 in
     'edit') fd::edit ;;
     'l') fd::list ;;
     'list') fd::list ;;
+    'h') fd::usage ;;
+    'help') fd::usage ;;
     *) fd::usage $1;;
 esac
 

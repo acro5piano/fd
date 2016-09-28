@@ -4,7 +4,7 @@ Favorite directory using peco
 
 # Usage
 
-Add favorite directory:
+Add a favorite directory:
 
 ```bash
 % cd /home/k-gosho
@@ -14,7 +14,7 @@ Add favorite directory:
 % fd add
 ```
 
-Then execute `fd`:
+Then execute:
 
 ```
 % fd
@@ -29,9 +29,9 @@ Interactively select the directory which you want to move to:
 
 ## Available subcommands
 
-  add      add the current directory to your favorite directory list.
-  edit     edit your favorite directory list.
-  list     show your favorite directory list.
+    add      add the current directory to your favorite directory list.
+    edit     edit your favorite directory list.
+    list     show your favorite directory list.
 
 These subcommands has short version such as `fd a`.
 

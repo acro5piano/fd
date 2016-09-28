@@ -37,7 +37,7 @@ These subcommands has short version such as `fd a`.
 
 # Install
 
-Please ensure you have already installed [peco](https://github.com/peco/peco)
+Please ensure you have already installed [peco](https://github.com/peco/peco).
 
 ```sh
 antigen bundle acro5piano/fd

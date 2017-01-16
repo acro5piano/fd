@@ -1,7 +1,17 @@
 #!/bin/bash
 
+fd::filter(){
+    if which fzf > /dev/null; then
+        echo fzf
+    elif which peco > /dev/null; then
+        echo peco
+    else
+        echo cat
+    fi
+}
+
 fd::cd(){
-    target=$(cat $FD_LIST | peco)
+    target=$(cat $FD_LIST | `fd::filter`)
     if [ "$target" ]; then
         cd $target
     else
